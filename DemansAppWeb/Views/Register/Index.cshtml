@@ -1,4 +1,4 @@
-﻿@model Companions
+﻿@model Users
 
 @{
     ViewData["Title"] = "Register Page";
@@ -70,7 +70,7 @@
                 <div class="card-body p-0">
                     <div class="tab-content">
                         <div class="tab-pane px-3 pt-3 active" id="Register_Tab" role="tabpanel">
-                            <form class="form-horizontal auth-form" id="registerForm"  >
+                            <form method="post" action="@Url.Action("Register","Register")" class="form-horizontal auth-form" id="registerForm">
                                 <div class="form-group mb-2">
                                     <label class="form-label" for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı adı</font></font></label>
                                     <div class="input-group">
@@ -135,7 +135,7 @@
                 <div class="card-body bg-light-alt text-center">
                     <span class="text-muted d-none d-sm-inline-block">
                         <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© </font></font><script>
-                                                                                                                          document.write(new Date().getFullYear())
+                         document.write(new Date().getFullYear())
                         </script><font style="vertical-align: inherit;"></font>
                     </span>
                 </div>
@@ -144,7 +144,7 @@
     </div><!--end row-->
 </div>
 
-@section scripts {
+@*@section scripts {
     <script type="text/javascript">
         
      function registerUser() {
@@ -186,4 +186,4 @@
     });
 }
     </script>
-}
+}*@

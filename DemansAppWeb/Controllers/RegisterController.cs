@@ -24,19 +24,10 @@ namespace DemansAppWeb.Controllers
         }
 
         [HttpPost]
-        public  IActionResult Register(addUserRequest model)
+        public  IActionResult Register(Users user)
         {
             if (ModelState.IsValid)
             {
-                var user = new Users()
-                {
-                    Email = model.Email,
-                    UserName = model.UserName,
-                    Surname = model.Surname,
-                    Phone = model.Phone,
-                    Password = HashPassword(model.Password)
-                };
-
                 db.Users.Add(user);
                 db.SaveChanges();
 
