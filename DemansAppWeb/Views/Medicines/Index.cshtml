@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Medicines Page";
 }
+@model IEnumerable<DemansAppWeb.Models.Medicines>
 
 @section css{
     <style type="text/css">
@@ -37,20 +38,14 @@
                                                 <th name="buttons"></th></tr>
                                             </thead>
                                             <tbody>
-                                              @*@foreach(var Medicines in Model)
-                                                    {*@
-                                                    <tr>
-                                                       @* <td>Ad</td>
-                                                        <td>Gün</td>
-                                                        <td>Saat</td>
-                                                        <td>Doz</td>*@
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                              @foreach (var data in Model)
+                                                        {
+                                                            <tr>
+                                                                <td>@data.Name</td>
+                                                                <td>@data.UsageDuration</td>
                                                         <td name="buttons"><div class=" float-end"><button id="bEdit" type="button" class="btn btn-sm btn-soft-success btn-circle me-2" onclick="rowEdit(this);"><i class="dripicons-pencil"></i></button><button id="bElim" type="button" class="btn btn-sm btn-soft-danger btn-circle" onclick="rowElim(this);"><i class="dripicons-trash" aria-hidden="true"></i></button><button id="bAcep" type="button" class="btn btn-sm btn-soft-purple me-2 btn-circle" style="display:none;" onclick="rowAcep(this);"><i class="dripicons-checkmark"></i></button><button id="bCanc" type="button" class="btn btn-sm btn-soft-info btn-circle" style="display:none;" onclick="rowCancel(this);"><i class="dripicons-cross" aria-hidden="true"></i></button></div></td>
-                                                    </tr>
-                                                    @*}*@
+                                                            </tr>
+                                                        }
                                             </tbody>
                                         </table>
                                     </div>
@@ -66,7 +61,7 @@
                                     <p class="text-muted mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Listenize yeni bir ilaç ekleyin.</font></font></p> 
                                 </div><!--end card-header-->
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post">
                                         <div class="mb-3 row">
                                                 <label for="medicine_name" class="col-sm-2 form-label align-self-center mb-lg-0 text-end"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">İlaç adı</font></font></label>
                                                 <div class="col-sm-10">
@@ -91,10 +86,12 @@
                                                     <input class="form-control" type="number"  id="dose" placeholder="Dozu">
                                                 </div>
                                             </div>
-                                        <button type="submit" class="btn btn-primary button-style"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ekle</font></font></button>
+                                        <button type="submit" id="btnAdd" class="btn btn-primary button-style"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ekle</font></font></button>
                                     </form>                                           
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div>
     </div>
 </div>
+
+

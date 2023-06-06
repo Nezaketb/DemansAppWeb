@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using System.Reflection.Metadata;
 using DemansAppWeb.Models.Map;
 using DemansAppWeb.Models;
-using DemansAppWeb.Models;
 
 namespace DemansAppWeb.Models
 {
@@ -18,7 +17,6 @@ namespace DemansAppWeb.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AudioBooksMap());
             modelBuilder.ApplyConfiguration(new CommandsMap());
             modelBuilder.ApplyConfiguration(new CompanionsMap());
             modelBuilder.ApplyConfiguration(new LocationInformationMap());
@@ -31,8 +29,8 @@ namespace DemansAppWeb.Models
             base.OnModelCreating(modelBuilder);
         }
 
+
         //....
-        public DbSet<AudioBooks> AudioBooks { get; set; }
         public DbSet<Commands> Commands { get; set; }
         public DbSet<Companions> Companions { get; set; }
         public DbSet<LocationInformation> LocationInformation { get; set; }

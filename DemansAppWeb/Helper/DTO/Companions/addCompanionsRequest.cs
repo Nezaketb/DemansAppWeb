@@ -1,23 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-
-namespace DemansAppWeb.Models
+﻿
+namespace DemansAppWeb.Helper.DTO.Companions
 {
-    public class Companions
+    public class addCompanionsRequest
     {
-        [Key]
+
         public int Id { get; set; }
 
         public string Adress { get; set; }
 
+        
         public string Email { get; set; }
 
+       
         public string Name { get; set; }
 
         public string Surname { get; set; }
 
         public string Phone { get; set; }
+
 
         public string Password { get; set; }
 

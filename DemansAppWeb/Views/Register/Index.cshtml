@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Companions
+
+@{
     ViewData["Title"] = "Register Page";
     Layout = "";
 }
@@ -39,97 +41,149 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/app.min.css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Select2/css/select2.css" />
-    
+
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css" />
 
     <style type="text/css">
-    .button-style{
-      background-color:#ED5E31 !important;
-      border-color:#ED5E31 !important;
-    }
+        .button-style {
+            background-color: #ED5E31 !important;
+            border-color: #ED5E31 !important;
+        }
     </style>
 
 </head>
 
 
 <div class="col-12 align-self-center">
-                    <div class="row">
-                        <div class="col-lg-5 mx-auto">
-                            <div class="card">
-                                <div class="card-body p-0 auth-header-box">
-                                    <div class="text-center p-3">
-                                        <a href="index.html" class="logo logo-admin">
-                                            <img src="~/assets/images/demans_logo_sm.png" height="50" alt="logo" class="auth-logo">
-                                        </a>
-                                        <h4 class="mt-3 mb-1 fw-semibold text-white font-18"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hadi Başlayalım Dastone</font></font></h4>   
-                                        <p class="text-muted  mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demans App'e devam etmek için oturum açın.</font></font></p>  
-                                    </div>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="tab-content">
-                                        <div class="tab-pane px-3 pt-3 active" id="Register_Tab" role="tabpanel">
-                                            <form class="form-horizontal auth-form" action="index.html">
-            
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="username"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı adı</font></font></label>
-                                                    <div class="input-group">                                                                                         
-                                                        <input type="text" class="form-control" name="username" id="username" placeholder="Kullanıcı adı girin">
-                                                    </div>                                    
-                                                </div><!--end form-group--> 
-            
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="useremail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">E-posta</font></font></label>
-                                                    <div class="input-group">                                                                                         
-                                                        <input type="email" class="form-control" name="email" id="useremail" placeholder="E-posta girin">
-                                                    </div>                                    
-                                                </div><!--end form-group-->
-                    
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="userpassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifre</font></font></label>                                            
-                                                    <div class="input-group">                                  
-                                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Parolanı Gir">
-                                                    </div>                               
-                                                </div><!--end form-group--> 
-            
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="conf_password"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifreyi Onayla</font></font></label>                                            
-                                                    <div class="input-group">                                   
-                                                        <input type="password" class="form-control" name="conf-password" id="conf_password" placeholder="Parolayı Doğrulayın">
-                                                    </div>
-                                                </div><!--end form-group-->
-                                                
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="mo_number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cep numarası</font></font></label>                                            
-                                                    <div class="input-group">                                 
-                                                        <input type="text" class="form-control" name="mobile number" id="mo_number" placeholder="Cep Numarasını Girin">
-                                                    </div>                               
-                                                </div><!--end form-group-->  
-                    
-                                                <div class="form-group row my-3">
-                                                    <div class="col-sm-12">
-                                                        <div class="custom-control custom-switch switch-success">
-                                                            <input type="checkbox" class="custom-control-input" id="customSwitchSuccess2">
-                                                            <label class="form-label text-muted" for="customSwitchSuccess2"><font style="vertical-align: inherit;"><a href="#" class="text-primary"><font style="vertical-align: inherit;">Demans App Kullanım Koşullarını</font></a><font style="vertical-align: inherit;"> kabul ediyorsunuz</font></font><a href="#" class="text-primary"><font style="vertical-align: inherit;"></font></a></label>
-                                                        </div>
-                                                    </div><!--end col-->                                             
-                                                </div><!--end form-group--> 
-                    
-                                                <div class="form-group mb-0 row">
-                                                    <div class="col-12">
-                                                        <button class="btn btn-primary w-100 waves-effect waves-light button-style" type="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kayıt ol</font></font><i class="fas fa-sign-in-alt ms-1"></i></button>
-                                                    </div><!--end col--> 
-                                                </div> <!--end form-group-->                           
-                                            </form><!--end form-->
-                                            <p class="my-3 text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Zaten hesabınız var mı ? </font></font><a href=@Url.Action("Index", "Login") class="text-primary ms-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giriş yap</font></font></a></p>                                                    
-                                        </div>
-                                    </div>
-                                </div><!--end card-body-->
-                                <div class="card-body bg-light-alt text-center">
-                                    <span class="text-muted d-none d-sm-inline-block"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© </font></font><script>
-                                        document.write(new Date().getFullYear())
-                                    </script><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2023</font></font></span>                                            
-                                </div>
-                            </div><!--end card-->
-                        </div><!--end col-->
-                    </div><!--end row-->
+    <div class="row">
+        <div class="col-lg-5 mx-auto">
+            <div class="card">
+                <div class="card-body p-0 auth-header-box">
+                    <div class="text-center p-3">
+                        <a href="index.html" class="logo logo-admin">
+                            <img src="~/assets/images/demans_logo.png" height="50" alt="logo" class="auth-logo">
+                        </a>
+                        <h4 class="mt-3 mb-1 fw-semibold text-white font-18"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hadi Başlayalım Dastone</font></font></h4>
+                        <p class="text-muted  mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demans App'e devam etmek için oturum açın.</font></font></p>
+                    </div>
                 </div>
+                <div class="card-body p-0">
+                    <div class="tab-content">
+                        <div class="tab-pane px-3 pt-3 active" id="Register_Tab" role="tabpanel">
+                            <form class="form-horizontal auth-form" id="registerForm"  >
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı adı</font></font></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="UserName"  id="name" placeholder="Kullanıcı adı girin">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="surname"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı soyadı</font></font></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="Surname"  id="surname" placeholder="Kullanıcı soyadı girin">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="email"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">E-posta</font></font></label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" name="Email"  id="email" placeholder="E-posta girin">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="mo_number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cep numarası</font></font></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="EmergencyPhone"  id="telnumber" placeholder="Cep Numarasını Girin">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="sex"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cinsiyet</font></font></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="Sex" id="sex" placeholder="Cinsiyet">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="password"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifre</font></font></label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="Password"  id="password" placeholder="Parolanı Gir">
+                                    </div>
+                                </div><!--end form-group-->
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="conf_password"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifreyi Onayla</font></font></label>
+                                      <div class="input-group">
+                                    <input type="password" class="form-control"  id="conf_password" placeholder="Parolayı Doğrulayın">
+                                    </div>
+                                    </div><!--end form-group-->
+                                    <div class="form-group row my-3">
+                                        <div class="col-sm-12">
+                                            <div class="custom-control custom-switch switch-success">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitchSuccess2">
+                                                <label class="form-label text-muted" for="customSwitchSuccess2"><font style="vertical-align: inherit;"><a href="#" class="text-primary"><font style="vertical-align: inherit;">Demans App Kullanım Koşullarını</font></a><font style="vertical-align: inherit;"> kabul ediyorsunuz</font></font><a href="#" class="text-primary"><font style="vertical-align: inherit;"></font></a></label>
+                                            </div>
+                                        </div><!--end col-->
+                                    </div><!--end form-group-->
+
+                                    <div class="form-group mb-0 row">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 waves-effect waves-light button-style" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kayıt ol</font></font><i class="fas fa-sign-in-alt ms-1"></i></button>
+                                        </div><!--end col-->
+                                    </div> <!--end form-group-->
+                            </form><!--end form-->
+                            <p class="my-3 text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Zaten hesabınız var mı ? </font></font><a href=@Url.Action("Index", "Login") class="text-primary ms-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giriş yap</font></font></a></p>
+                        </div>
+                    </div>
+                </div><!--end card-body-->
+                <div class="card-body bg-light-alt text-center">
+                    <span class="text-muted d-none d-sm-inline-block">
+                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© </font></font><script>
+                                                                                                                          document.write(new Date().getFullYear())
+                        </script><font style="vertical-align: inherit;"></font>
+                    </span>
+                </div>
+            </div><!--end card-->
+        </div><!--end col-->
+    </div><!--end row-->
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        
+     function registerUser() {
+    // Kullanıcının girdiği bilgileri al
+    var name = document.getElementById("name").value;
+    var surname = document.getElementById("surname").value;
+    var sex = document.getElementById("sex").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Kullanıcı nesnesini oluştur
+    var user = {
+        name: name,
+        surname: surname,
+        sex: sex,
+        email: email,
+        password: password,
+    };
+
+    // POST isteği gönder
+    fetch('/api/user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // Kayıt başarılı mesajını göster
+        alert(data);
+    })
+    .catch(error => {
+        console.error('Hata:', error);
+        // Hata mesajını göster
+        alert('Bir hata oluştu.');
+    });
+}
+    </script>
+}

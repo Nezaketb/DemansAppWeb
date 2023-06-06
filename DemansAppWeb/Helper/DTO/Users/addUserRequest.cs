@@ -1,12 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-
-namespace DemansAppWeb.Models
+﻿namespace DemansAppWeb.Helper.DTO.Users
 {
-    public class Users
+    public class addUserRequest
     {
-        [Key]
         public int Id { get; set; }
 
         public string Email { get; set; }
@@ -14,7 +9,7 @@ namespace DemansAppWeb.Models
         public string EmergencyPhone { get; set; }
 
         public string UserName { get; set; }
-        
+
         public string Surname { get; set; }
 
         public string Phone { get; set; }
@@ -22,6 +17,5 @@ namespace DemansAppWeb.Models
         public string Sex { get; set; }
 
         public string Password { get; set; }
-
     }
 }
