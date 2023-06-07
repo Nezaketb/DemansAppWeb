@@ -1,6 +1,7 @@
 ﻿using DemansAppWeb.Helper.DTO.Users;
 using DemansAppWeb.Models;
 using DemansAppWeb.Models.Map;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
@@ -23,20 +24,60 @@ namespace DemansAppWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public  IActionResult Register(Users user)
+        //[HttpPost]
+        //public IActionResult Register(Users user)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        db.Users.Add(user);
+        //        db.SaveChanges();
+
+        //        return RedirectToAction("Index", "Login");
+        //    }
+
+        //    return BadRequest();
+        //}
+
+
+
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult> Register(addUserRequest model)
         {
-            if (ModelState.IsValid)
+
+            if (!ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
+                var userList = db.Users.Select(s => s.UserName).ToList();
+                var Count = 0;
+                foreach (var user in userList)
+                {
+                    if(user == model.UserName) 
+                    Count++;
+                }
+                if (Count > 0)
+                {
+                    ModelState.AddModelError("", "Bu KULLANICI ADI SİSTEMDE kayıtşı");
+                }
 
-                return RedirectToAction("Index", "Login");
+                else
+                        {
+                    var user = new Users()
+                    {
+                        Email = model.Email,
+                        UserName = model.UserName,
+                        Surname = model.Surname,
+                        EmergencyPhone = model.EmergencyPhone,
+                        Sex = model.Sex,
+                        Password = HashPassword(model.Password)
+                    };
+
+                    await db.Users.AddAsync(user);
+                    await db.SaveChangesAsync();
+
+                    return RedirectToAction("Index", "Login");
+                }
             }
-
-            return BadRequest();
+                return RedirectToAction("Index", "Register");
         }
-
         private string HashPassword(string password)
         {
             // Şifreyi hashlemek için istediğiniz bir algoritmayı kullanabilirsiniz

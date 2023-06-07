@@ -19,7 +19,7 @@ namespace DemansAppWeb.Models
 
         public string Phone { get; set; }
 
-        public string Sex { get; set; }
+        public bool Sex { get; set; }
 
         public string Password { get; set; }
 

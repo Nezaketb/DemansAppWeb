@@ -96,11 +96,18 @@
                                     </div>
                                 </div><!--end form-group-->
                                 <div class="form-group mb-2">
-                                    <label class="form-label" for="sex"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cinsiyet</font></font></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="Sex" id="sex" placeholder="Cinsiyet">
-                                    </div>
-                                </div><!--end form-group-->
+                                <label class="col-sm-3 form-label modal-label-style " style="font-weight:bold">Cinsiyet</label>
+                                <div class="col-sm-7" style="margin-left:13px;">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" id="women" value="0" />
+                                <label class="form-check-label" for="women">Kadın</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" id="men" value="1" />
+                                <label class="form-check-label" for="men">Erkek</label>
+                                </div>
+                                </div>
+                                </div>
                                 <div class="form-group mb-2">
                                     <label class="form-label" for="password"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifre</font></font></label>
                                     <div class="input-group">
@@ -144,14 +151,19 @@
     </div><!--end row-->
 </div>
 
-@*@section scripts {
+@section scripts {
     <script type="text/javascript">
         
      function registerUser() {
     // Kullanıcının girdiği bilgileri al
     var name = document.getElementById("name").value;
     var surname = document.getElementById("surname").value;
-    var sex = document.getElementById("sex").value;
+    var sex = true;
+            if (document.getElementById('women').checked == true) {
+                sex = true;
+            } else {
+                sex = false;
+            }
     var phone = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -186,4 +198,4 @@
     });
 }
     </script>
-}*@
+}
