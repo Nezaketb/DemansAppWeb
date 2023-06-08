@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Users
+
+@{
     ViewData["Title"] = "Login Page";
     Layout = "";
 }
@@ -68,18 +70,18 @@
                                 <div class="card-body p-0">
                                     <div class="tab-content">
                                         <div class="tab-pane p-3 active" id="LogIn_Tab" role="tabpanel">                                        
-                                            <form class="form-horizontal auth-form" action="https://mannatthemes.com/dastone/default/index.html">
+                                            <form method="post" action="@Url.Action("Login","Login")" id="loginForm" class="form-horizontal auth-form">
                                                 <div class="form-group mb-2">
                                                     <label class="form-label" for="username"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı adı</font></font></label>
                                                     <div class="input-group">                                                                                         
-                                                        <input type="text" class="form-control" name="username" id="username" placeholder="Kullanıcı adı girin">
+                                                        <input type="text" class="form-control" name="UserName" id="UserName" placeholder="Kullanıcı adı girin" required>
                                                     </div>                                    
                                                 </div><!--end form-group--> 
                     
                                                 <div class="form-group mb-2">
                                                     <label class="form-label" for="userpassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Şifre</font></font></label>                                            
                                                     <div class="input-group">                                  
-                                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Parolanı Gir">
+                                                        <input type="password" class="form-control" name="Password" id="Password" placeholder="Parolanı Gir" required>
                                                     </div>                               
                                                 </div><!--end form-group--> 
                     
@@ -97,10 +99,14 @@
                     
                                                 <div class="form-group mb-0 row">
                                                     <div class="col-12">
-                                                        <button class="btn btn-primary w-100 waves-effect waves-light button-style" type="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giriş yap</font></font><i class="fas fa-sign-in-alt ms-1"></i></button>
+                                                        <button class="btn btn-primary w-100 waves-effect waves-light button-style" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giriş yap</font></font><i class="fas fa-sign-in-alt ms-1"></i></button>
                                                     </div><!--end col--> 
                                                 </div> <!--end form-group-->                           
                                             </form><!--end form-->
+                                            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                                            {
+                                                <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                                            }
                                             <div class="m-3 text-center text-muted">
                                                 <p class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hesabınız yok mu?  </font></font><a href=@Url.Action("Index", "Register") class="text-primary ms-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kayıt ol</font></font></a></p>
                                             </div>
@@ -113,3 +119,31 @@
                 </div><!--end col-->
             </div><!--end row-->
         </div>
+@*
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+    $("#loginForm").submit(function (e) {
+        e.preventDefault();
+
+        var username = $("#UserName").val();
+        var password = $("#Password").val();
+
+        $.ajax({
+            url: "/Login/Login",
+            type: "POST",
+            data: { username: username, password: password },
+            success: function (response) {
+                // Giriş başarılı, yönlendirme yapabilirsiniz
+                window.location.href = "/Home/Index";
+            },
+            error: function (xhr) {
+                // Giriş başarısız, hata mesajını ekrana yazdırabilirsiniz
+                $("#errorMessage").text(xhr.responseText);
+            }
+        });
+    });
+});
+    </script>
+}*@

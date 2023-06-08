@@ -55,7 +55,7 @@ namespace DemansAppWeb.Controllers
                 }
                 if (Count > 0)
                 {
-                    ModelState.AddModelError("", "Bu KULLANICI ADI SİSTEMDE kayıtşı");
+                    ModelState.AddModelError("", "Bu KULLANICI ADI SİSTEMDE kayıtlı");
                 }
 
                 else
