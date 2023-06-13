@@ -24,22 +24,6 @@ namespace DemansAppWeb.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Register(Users user)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        db.Users.Add(user);
-        //        db.SaveChanges();
-
-        //        return RedirectToAction("Index", "Login");
-        //    }
-
-        //    return BadRequest();
-        //}
-
-
-
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Register(addUserRequest model)
         {

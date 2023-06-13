@@ -1,4 +1,8 @@
-﻿namespace DemansAppWeb.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
+
+namespace DemansAppWeb.Models
 {
     public class Login
     {

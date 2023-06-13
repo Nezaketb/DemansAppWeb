@@ -42,42 +42,30 @@ namespace DemansAppWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userList = db.Users.Select(s => s.UserName).ToList();
-                var count = 0;
+                var user = db.Users.Where(u => u.UserName == model.UserName).FirstOrDefault();
 
-                foreach (var username in userList)
+                if (user != null)
                 {
-                    if (username == model.UserName)
+                    // Kullanıcı bulundu, şifre eşleştirmesini yapabilirsiniz
+                    string hashedPassword = HashPassword(model.Password);
+
+                    if (user.Password == hashedPassword)
                     {
-                        count++;
-                        break; // Eşleşme bulundu, döngüyü sonlandır
+                        // Şifre doğru, kullanıcı giriş yapabilir
+                        // Giriş işlemiyle ilgili diğer işlemleri gerçekleştirin
+                        return RedirectToAction("Index", "Home");
                     }
-                }
-
-                if (count > 0)
-                {
-                    ModelState.AddModelError("", "Bu KULLANICI ADI SİSTEMDE kayıtlı");
-
-                    var user = db.Users.FirstOrDefault(u => u.UserName == model.UserName);
-
-                    if (user != null)
+                    else
                     {
-                        string hashedPassword = HashPassword(model.Password);
-
-                        if (user.Password == hashedPassword)
-                        {
-                            
-                            return RedirectToAction("Index", "Home");
-                        }
+                        ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış");
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Bu KULLANICI ADI SİSTEMDE kayıtlı değil");
+                    return RedirectToAction("Index", "Login");
                 }
             }
-
-            return View(model);
+            return RedirectToAction("Index", "Login");
         }
 
         //[HttpPost, AllowAnonymous]
@@ -144,8 +132,5 @@ namespace DemansAppWeb.Controllers
             }
         }
     }
-
-        // Şifre hashleme işlemi
-       
     }
 

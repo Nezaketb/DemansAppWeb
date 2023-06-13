@@ -15,7 +15,6 @@ namespace DemansAppWeb.Models.Map
             builder.Property(p => p.EmergencyPhone).HasColumnType("string").IsRequired();
             builder.Property(p => p.UserName).HasColumnType("string").IsRequired();
             builder.Property(p => p.Surname).HasColumnType("string").IsRequired();
-            builder.Property(p => p.Phone).HasColumnType("string").IsRequired();
             builder.Property(p => p.Sex).HasColumnType("boolean").IsRequired();
             builder.Property(p => p.Password).HasColumnType("string").IsRequired();
 
